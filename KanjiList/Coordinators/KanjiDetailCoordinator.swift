@@ -72,6 +72,7 @@ extension KanjiDetailCoordinator: KanjiDetailViewControllerDelegate {
         let kanjiForWord = kanjiStorage.kanjiForWord(word)
         wordKanjiListViewController.kanjiList = kanjiForWord
         wordKanjiListViewController.title = word
+        wordKanjiListViewController.cellAccessoryType = .none
         
         presenter.pushViewController(wordKanjiListViewController, animated: true)
     }

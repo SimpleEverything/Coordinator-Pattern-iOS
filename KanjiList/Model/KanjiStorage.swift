@@ -36,7 +36,6 @@ struct KanjiCache {
 // Provides kanji data from JSON
 class KanjiStorage {
   
-  static let sharedStorage = KanjiStorage()
   static let kanjiURL = Bundle.main.url(forResource: "knji", withExtension: "json")!
   
   private let allKanjiFromJSON: KanjiCache
