@@ -24,6 +24,7 @@
 		D63040A522F209E000C5AC94 /* KanjiListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63040A422F209E000C5AC94 /* KanjiListViewController.xib */; };
 		D63040A722F20A2700C5AC94 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63040A622F20A2700C5AC94 /* ApplicationCoordinator.swift */; };
 		D63040A922F20F9B00C5AC94 /* AllKanjiListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63040A822F20F9B00C5AC94 /* AllKanjiListCoordinator.swift */; };
+		D63040AB22F212B700C5AC94 /* KanjiDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63040AA22F212B700C5AC94 /* KanjiDetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D63040A422F209E000C5AC94 /* KanjiListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiListViewController.xib; sourceTree = "<group>"; };
 		D63040A622F20A2700C5AC94 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		D63040A822F20F9B00C5AC94 /* AllKanjiListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllKanjiListCoordinator.swift; sourceTree = "<group>"; };
+		D63040AA22F212B700C5AC94 /* KanjiDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				D63040A022F208F700C5AC94 /* Coordinator.swift */,
 				D63040A622F20A2700C5AC94 /* ApplicationCoordinator.swift */,
 				D63040A822F20F9B00C5AC94 /* AllKanjiListCoordinator.swift */,
+				D63040AA22F212B700C5AC94 /* KanjiDetailCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63040A122F208F700C5AC94 /* Coordinator.swift in Sources */,
+				D63040AB22F212B700C5AC94 /* KanjiDetailCoordinator.swift in Sources */,
 				4323D3E01FAD0CF600F0FB1E /* WordExampleTableViewCell.swift in Sources */,
 				4323D3E41FAD110200F0FB1E /* KanjiDataTableViewCell.swift in Sources */,
 				4372643E1FAD04F400A22393 /* AppDelegate.swift in Sources */,
