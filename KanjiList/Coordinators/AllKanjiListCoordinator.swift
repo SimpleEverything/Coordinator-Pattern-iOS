@@ -25,28 +25,44 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-import UIKit
 
-class ApplicationCoordinator: Coordinator {
-    let kanjiStorage: KanjiStorage //  1
-    let window: UIWindow  // 2
-    let rootViewController: UINavigationController  // 3
-    let allKanjiListCoordinator: AllKanjiListCoordinator
+import UIKit
+/*
+ * 1. The presenter of AllKanjiListCoordinator is a UINavigationController.
+ * 2. Since AllKanjiListCoordinator presents a list of all kanji, it needs a property to access the list.
+ * 3. Property to keep a reference to the KanjiListViewController that you’ll be presenting.
+ * 4. Property to store KanjiStorage, which is passed to AllKanjiListCoordinator‘s initializer.
+ * 5. Initialize properties.
+ * 6. Create the UIViewController that you want to present.
+ * 7. Push the newly created UIViewController to the presenter.
+ */
+class AllKanjiListCoordinator: Coordinator {
+    private let presenter: UINavigationController  // 1
+    private let allKanjiList: [Kanji]  // 2
+    private var kanjiListViewController: KanjiListViewController? // 3
+    private let kanjiStorage: KanjiStorage // 4
     
-    init(window: UIWindow) { //4
-        self.window = window
-        kanjiStorage = KanjiStorage()
-        rootViewController = UINavigationController()
-        rootViewController.navigationBar.prefersLargeTitles = true
-        
-        // 5
-        allKanjiListCoordinator = AllKanjiListCoordinator(presenter: rootViewController,
-                                                          kanjiStorage: kanjiStorage)
+    init(presenter: UINavigationController, kanjiStorage: KanjiStorage) {
+        self.presenter = presenter
+        self.kanjiStorage = kanjiStorage
+        allKanjiList = kanjiStorage.allKanji()  // 5
     }
     
-    func start() {  // 6
-        window.rootViewController = rootViewController
-        allKanjiListCoordinator.start()
-        window.makeKeyAndVisible()
+    func start() {
+        let kanjiListViewController = KanjiListViewController(nibName: nil, bundle: nil) // 6
+        kanjiListViewController.delegate = self
+        kanjiListViewController.title = "Kanji list"
+        kanjiListViewController.kanjiList = allKanjiList
+        presenter.pushViewController(kanjiListViewController, animated: true)  // 7
+        
+        self.kanjiListViewController = kanjiListViewController
     }
 }
+
+// MARK: - KanjiListViewControllerDelegate
+extension AllKanjiListCoordinator: KanjiListViewControllerDelegate {
+    func kanjiListViewControllerDidSelectKanji(_ selectedKanji: Kanji) {
+        
+    }
+}
+
